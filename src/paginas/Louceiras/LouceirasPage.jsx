@@ -110,7 +110,6 @@ export default function LouceirasPage() {
               <h2>Personagens relacionados</h2>
               <p>Perfis e vozes que ajudam a contar esta manifestação.</p>
             </div>
-            <span className="louceiras-note">Nomes serão incluídos após validação.</span>
           </div>
 
           <div className="louceiras-people">

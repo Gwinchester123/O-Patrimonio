@@ -242,12 +242,6 @@
   gap: 18px;
 }
 
-.louceiras-note {
-  padding-bottom: 4px;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
 .louceiras-people {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

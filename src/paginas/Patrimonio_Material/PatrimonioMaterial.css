@@ -31,77 +31,8 @@
   padding: 14px 12px;
 }
 
-.patrimonio-material-page .louceiras-people {
-  gap: 12px;
-}
-
-.patrimonio-material-page .louceiras-person {
-  min-width: 0;
-  min-height: 0;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 10px;
-  border-radius: 7px;
-}
-
-.patrimonio-material-page .louceiras-person-avatar {
-  flex: 0 0 42px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-}
-
-.patrimonio-material-page .louceiras-person > div {
-  min-width: 0;
-}
-
-.patrimonio-material-page .louceiras-person h3 {
-  margin: 0 0 3px;
-  font-size: 0.86rem;
-}
-
-.patrimonio-material-page .louceiras-person p {
-  font-size: 0.68rem;
-}
-
-.patrimonio-material-page .louceiras-records {
-  gap: 12px;
-}
-
-.patrimonio-material-page .louceiras-record {
-  padding: 0 0 10px;
-  overflow: hidden;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.patrimonio-material-record-preview {
-  display: grid;
-  height: 112px;
-  margin-bottom: 9px;
-  background: #ddd3c3;
-  color: rgba(59, 40, 25, 0.45);
-  font-size: 24px;
-  place-items: center;
-}
-
-.patrimonio-material-page .louceiras-record > span:not(.patrimonio-material-record-preview),
-.patrimonio-material-page .louceiras-record h3 {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.patrimonio-material-page .louceiras-record h3 {
-  font-size: 20px;
-}
-
 @media (max-width: 520px) {
   .patrimonio-material-page .louceiras-intro h1 {
     font-size: clamp(36px, 10vw, 48px);
-  }
-
-  .patrimonio-material-record-preview {
-    height: 100px;
   }
 }

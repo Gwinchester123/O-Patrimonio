@@ -16,7 +16,7 @@ export default function Footer() {
         <span className="footer-title">CONTATO</span>
 
         <p>
-          [E-mail do projeto]
+          <a href="mailto:email@exemplo.com">email@exemplo.com</a>
         </p>
       </div>
 

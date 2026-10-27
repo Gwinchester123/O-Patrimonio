@@ -115,7 +115,6 @@ export default function PatrimonioMaterialPage() {
               <h2>Personagens relacionados</h2>
               <p>Perfis e vozes que ajudam a contar a história do patrimônio local.</p>
             </div>
-            <span className="louceiras-note">Nomes serão incluídos após validação.</span>
           </div>
 
           <div className="louceiras-people">
@@ -154,9 +153,6 @@ export default function PatrimonioMaterialPage() {
                 key={record.title}
                 aria-label={`${record.type}, ${record.title}: abrir galeria`}
               >
-                <span className="patrimonio-material-record-preview" aria-hidden="true">
-                  ▧
-                </span>
                 <span>{record.type}</span>
                 <h3>{record.title}</h3>
               </Link>
