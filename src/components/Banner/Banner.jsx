@@ -1,8 +1,10 @@
 import "./Banner.css";
+import bannerImage from "../../assets/header_1280x560.png";
 
 export default function Banner() {
   return (
     <section className="hero" id="inicio">
+      <img className="hero-background" src={bannerImage} alt="" />
       <div className="hero-overlay"></div>
 
       <div className="hero-content">
