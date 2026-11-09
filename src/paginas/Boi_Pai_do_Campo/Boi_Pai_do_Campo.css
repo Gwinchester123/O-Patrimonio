@@ -182,6 +182,10 @@
   object-fit: cover;
 }
 
+.manifestation-person-card:first-child .manifestation-person-figure {
+  object-position: center 25%;
+}
+
 .manifestation-person-card strong {
   display: block;
   color: var(--brown);

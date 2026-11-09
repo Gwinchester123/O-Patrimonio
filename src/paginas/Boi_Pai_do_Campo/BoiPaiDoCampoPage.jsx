@@ -14,19 +14,6 @@ const personagens = [
   { nome: "Dr. Boi", imagem: doutorDoBoi },
 ];
 
-const registros = [
-  { label: "Fotografia", title: "Boi Pai do Campo" },
-  { label: "Documento", title: "Memória e tradições" },
-];
-
-const videos = [
-  { id: "ZsdBxKsUSEI", title: "Vídeo do Boi Pai do Campo 1" },
-  { id: "NI51oaLPP2A", title: "Vídeo do Boi Pai do Campo 2" },
-  { id: "hraeDwQihq4", title: "Vídeo do Boi Pai do Campo 3" },
-  { id: "DGPtkb6u0l8", title: "Vídeo do Boi Pai do Campo 4" },
-  { id: "uPd7uysCLZs", title: "Vídeo do Boi Pai do Campo 5" },
-];
-
 export default function BoiPaiDoCampoPage() {
   return (
     <div className="manifestation-page">
@@ -89,55 +76,6 @@ export default function BoiPaiDoCampoPage() {
             imageClassName="manifestation-person-figure"
             titleTag="strong"
           />
-        </section>
-
-        <section className="manifestation-section">
-          <div className="manifestation-header-inline">
-            <h2>Registros relacionados</h2>
-            <Link className="manifestation-link" to="/galeria">
-              Ver galeria
-            </Link>
-          </div>
-
-          <div className="manifestation-record-sections">
-            <section className="manifestation-record-category">
-              <h3 className="manifestation-record-category-title">Fotografia</h3>
-              <div className="manifestation-record-grid">
-                <article className="manifestation-record-card">
-                  <span>{registros[0].label}</span>
-                  <h3>{registros[0].title}</h3>
-                </article>
-              </div>
-            </section>
-
-            <section className="manifestation-record-category">
-              <h3 className="manifestation-record-category-title">Vídeos</h3>
-              <div className="manifestation-video-grid" aria-label="Vídeos do Boi Pai do Campo">
-                {videos.map((video) => (
-                  <article className="manifestation-video-card" key={video.id}>
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${video.id}`}
-                      title={video.title}
-                      loading="lazy"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <section className="manifestation-record-category">
-              <h3 className="manifestation-record-category-title">Documentos</h3>
-              <div className="manifestation-record-grid">
-                <article className="manifestation-record-card">
-                  <span>{registros[1].label}</span>
-                  <h3>{registros[1].title}</h3>
-                </article>
-              </div>
-            </section>
-          </div>
         </section>
 
         <div className="manifestation-actions">
