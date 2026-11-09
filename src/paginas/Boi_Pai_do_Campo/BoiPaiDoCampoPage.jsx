@@ -2,19 +2,29 @@ import { Link } from "react-router-dom";
 import "./Boi_Pai_do_Campo.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import CharacterViewer from "../../components/CharacterViewer/CharacterViewer";
 import boiPaiDoCampo from "../../assets/boi_pai_do_campo.png";
+import mestreChico from "../../imagens/Boi_Pai_do_Campo/Personagens Relacionados/Mestre Chico.jpg";
+import nossoBoi from "../../imagens/Boi_Pai_do_Campo/Personagens Relacionados/Nosso boi.png";
+import doutorDoBoi from "../../imagens/Boi_Pai_do_Campo/Personagens Relacionados/Dr.do Boi .png";
 
 const personagens = [
-  { nome: "Boi Pai do Campo", funcao: "Personagem central" },
-  { nome: "Mestre da folia", funcao: "Liderança e condução" },
-  { nome: "Vaqueiro", funcao: "Símbolo do campo" },
-  { nome: "Coro e dançarinos", funcao: "Encenação e tradição" },
+  { nome: "Mestre Chico", imagem: mestreChico },
+  { nome: "Nosso Boi", imagem: nossoBoi },
+  { nome: "Dr. Boi", imagem: doutorDoBoi },
 ];
 
 const registros = [
   { label: "Fotografia", title: "Boi Pai do Campo" },
-  { label: "Vídeo", title: "Encenação e dança" },
   { label: "Documento", title: "Memória e tradições" },
+];
+
+const videos = [
+  { id: "ZsdBxKsUSEI", title: "Vídeo do Boi Pai do Campo 1" },
+  { id: "NI51oaLPP2A", title: "Vídeo do Boi Pai do Campo 2" },
+  { id: "hraeDwQihq4", title: "Vídeo do Boi Pai do Campo 3" },
+  { id: "DGPtkb6u0l8", title: "Vídeo do Boi Pai do Campo 4" },
+  { id: "uPd7uysCLZs", title: "Vídeo do Boi Pai do Campo 5" },
 ];
 
 export default function BoiPaiDoCampoPage() {
@@ -44,36 +54,41 @@ export default function BoiPaiDoCampoPage() {
           <div className="manifestation-copy">
             <h2>História e origem</h2>
             <p>
-              Esta manifestação relata a rica trajetória cultural do município, reunindo
-              narrativas, personagens e tradições que foram transmitidas entre gerações.
+              O Boi Pai do Campo surgiu em 1980, na comunidade de Faceira, a partir da
+              iniciativa de João Vicente da Costa, conhecido como João Caboclo, e seu
+              sobrinho Francisco das Chagas da Costa, o Mestre Chico. A manifestação tem
+              suas origens nas antigas brincadeiras de bumba meu boi trazidas ao Vale do
+              Jaguaribe por trabalhadores baianos no início do século XX.
             </p>
             <p>
-              A partir dos registros e do corpo de saberes locais, o Boi Pai do Campo
-              continua representando uma dimensão central da memória cultural popular do
-              território.
+              Após o falecimento de João Caboclo, em 2002, Mestre Chico assumiu a missão
+              de dar continuidade à tradição, contando com o apoio e a participação da
+              comunidade. Com aproximadamente 25 brincantes, o folguedo reúne personagens
+              como o boi, a burrinha, o bode, a ema e o jaguá, acompanhados por músicas e
+              ritmos tradicionais que dão vida à brincadeira.
+            </p>
+            <p>
+              Em 2005, Mestre Chico recebeu do Governo do Estado do Ceará o título de
+              Tesouro Vivo da Cultura Tradicional Cearense, reconhecimento da importância
+              de seu trabalho na preservação dessa manifestação popular.
+            </p>
+            <p>
+              Ao longo dos anos, o Boi Pai do Campo tornou-se parte da identidade
+              cultural de Faceira, representando a união, a memória e a alegria de uma
+              comunidade que mantém viva essa tradição de geração em geração.
             </p>
           </div>
-
-          <aside className="manifestation-highlight">
-            <span>Em destaque</span>
-            <p>
-              A expressão carrega simbolismos, valores e práticas coletivas que ajudam a
-              fortalecer a identidade da comunidade.
-            </p>
-          </aside>
         </section>
 
         <section className="manifestation-section">
           <h2>Personagens relacionados</h2>
-          <div className="manifestation-person-grid">
-            {personagens.map((item) => (
-              <article key={item.nome} className="manifestation-person-card">
-                <div className="manifestation-person-figure" aria-hidden="true" />
-                <strong>{item.nome}</strong>
-                <span>{item.funcao}</span>
-              </article>
-            ))}
-          </div>
+          <CharacterViewer
+            characters={personagens}
+            gridClassName="manifestation-person-grid"
+            cardClassName="manifestation-person-card"
+            imageClassName="manifestation-person-figure"
+            titleTag="strong"
+          />
         </section>
 
         <section className="manifestation-section">
@@ -84,15 +99,44 @@ export default function BoiPaiDoCampoPage() {
             </Link>
           </div>
 
-          <div className="manifestation-record-grid">
-            {registros.map((item) => (
-              <article key={item.title} className="manifestation-record-card">
-                <div className="manifestation-record-content">
-                  <span>{item.label}</span>
-                  <h3>{item.title}</h3>
-                </div>
-              </article>
-            ))}
+          <div className="manifestation-record-sections">
+            <section className="manifestation-record-category">
+              <h3 className="manifestation-record-category-title">Fotografia</h3>
+              <div className="manifestation-record-grid">
+                <article className="manifestation-record-card">
+                  <span>{registros[0].label}</span>
+                  <h3>{registros[0].title}</h3>
+                </article>
+              </div>
+            </section>
+
+            <section className="manifestation-record-category">
+              <h3 className="manifestation-record-category-title">Vídeos</h3>
+              <div className="manifestation-video-grid" aria-label="Vídeos do Boi Pai do Campo">
+                {videos.map((video) => (
+                  <article className="manifestation-video-card" key={video.id}>
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                      title={video.title}
+                      loading="lazy"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="manifestation-record-category">
+              <h3 className="manifestation-record-category-title">Documentos</h3>
+              <div className="manifestation-record-grid">
+                <article className="manifestation-record-card">
+                  <span>{registros[1].label}</span>
+                  <h3>{registros[1].title}</h3>
+                </article>
+              </div>
+            </section>
           </div>
         </section>
 

@@ -249,6 +249,7 @@
 }
 
 .louceiras-person {
+  position: relative;
   display: flex;
   min-height: 0;
   flex-direction: column;

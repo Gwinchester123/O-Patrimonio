@@ -156,12 +156,13 @@
 
 .manifestation-person-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin-top: 14px;
 }
 
 .manifestation-person-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -173,11 +174,12 @@
 }
 
 .manifestation-person-figure {
+  display: block;
   width: 100%;
   height: 170px;
   border: 1px solid rgba(59, 40, 25, 0.06);
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(199, 123, 42, 0.3), rgba(59, 40, 25, 0.16));
+  object-fit: cover;
 }
 
 .manifestation-person-card strong {
@@ -185,13 +187,6 @@
   color: var(--brown);
   font-size: 1.05rem;
   line-height: 1.3;
-}
-
-.manifestation-person-card span {
-  color: var(--muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .manifestation-header-inline {
@@ -214,6 +209,106 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+}
+
+.manifestation-record-sections {
+  display: grid;
+  min-width: 0;
+  max-width: 100%;
+  gap: 24px;
+}
+
+.manifestation-record-category {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.manifestation-record-category-title {
+  margin: 0 0 10px;
+  color: var(--brown);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+}
+
+.manifestation-record-category .manifestation-record-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.manifestation-video-grid {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  gap: 18px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 2px 2px 12px;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--orange) rgba(199, 123, 42, 0.12);
+  scrollbar-width: auto;
+}
+
+.manifestation-video-card {
+  box-sizing: border-box;
+  flex: 0 0 min(360px, 82vw);
+  overflow: hidden;
+  scroll-snap-align: start;
+  border: 1px solid #e6d9c3;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.38);
+  box-shadow: 0 6px 18px rgba(46, 31, 19, 0.04);
+}
+
+.manifestation-video-card iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.manifestation-video-card > span {
+  display: block;
+  margin: 12px 14px 0;
+  color: var(--orange-dark);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.manifestation-video-card h3 {
+  margin: 0;
+  padding: 12px 14px;
+  color: var(--brown);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.manifestation-video-grid::-webkit-scrollbar {
+  height: 18px;
+}
+
+.manifestation-video-grid::-webkit-scrollbar-track {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgba(199, 123, 42, 0.12);
+  background-clip: padding-box;
+}
+
+.manifestation-video-grid::-webkit-scrollbar-thumb {
+  min-width: 64px;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: var(--orange);
+  background-clip: padding-box;
+}
+
+.manifestation-video-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-dark);
+  background-clip: padding-box;
 }
 
 .manifestation-record-card {
@@ -276,6 +371,14 @@
   .manifestation-person-grid,
   .manifestation-record-grid {
     grid-template-columns: 1fr;
+  }
+
+  .manifestation-video-grid {
+    scroll-padding-inline: 8px;
+  }
+
+  .manifestation-video-card {
+    flex-basis: 88%;
   }
 
 }

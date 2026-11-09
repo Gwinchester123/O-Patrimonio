@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CharacterViewer from "../../components/CharacterViewer/CharacterViewer";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import fogosa from "../../assets/fogosa.jpeg";
@@ -118,17 +119,12 @@ export default function FogosaPage() {
             </div>
           </div>
 
-          <div className="louceiras-people">
-            {people.map((person) => (
-              <article className="louceiras-person" key={person.title}>
-                <span className="louceiras-person-avatar" aria-hidden="true" />
-                <div>
-                  <h3>{person.title}</h3>
-                  <p>{person.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <CharacterViewer
+            characters={people}
+            gridClassName="louceiras-people"
+            cardClassName="louceiras-person"
+            imageClassName="louceiras-person-avatar"
+          />
         </section>
 
         <section className="louceiras-section louceiras-records-section">

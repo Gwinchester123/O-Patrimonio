@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import ImageViewer from "../../components/ImageViewer/ImageViewer";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Galeria.css";
@@ -8,9 +8,33 @@ import fogosa from "../../assets/fogosa.jpeg";
 import louceiras from "../../assets/louceiras.jpeg";
 import patrimonioMaterial from "../../assets/header_1280x560.png";
 
+const brincantesPhotos = import.meta.glob(
+  "../../imagens/Boi_Pai_do_Campo/Brincantes do Boi/*.{jpg,jpeg,png}",
+  { eager: true, import: "default" },
+);
+
 const filters = ["Todos", "Boi Pai do Campo", "Louceiras", "Fogosa", "Patrimônio Material"];
 
 const galleryEntries = [
+  ...Object.entries(brincantesPhotos)
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([path, image], index) => {
+      const fileName = path.split("/").pop().replace(/\.[^.]+$/, "");
+      const title = fileName
+        .replace(/[_-]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+      return {
+        category: "Boi Pai do Campo",
+        title: title.charAt(0).toUpperCase() + title.slice(1),
+        type: "Fotografia",
+        meta: `Brincante ${index + 1}`,
+        image,
+        imageAlt: `Brincante do Boi: ${fileName}`,
+        link: "/boi-pai-do-campo",
+      };
+    }),
   { category: "Fogosa", title: "Registro fotográfico da manifestação", type: "Fotografia", meta: "Registro 04", image: fogosa, link: "/fogosa" },
   { category: "Boi Pai do Campo", title: "Registro audiovisual da manifestação", type: "Vídeo", meta: "Registro 02", image: boiPaiDoCampo, link: "/boi-pai-do-campo" },
   { category: "Louceiras", title: "Registro fotográfico da manifestação", type: "Fotografia", meta: "Registro 05", image: louceiras, link: "/louceiras" },
@@ -40,24 +64,52 @@ const galleryEntries = [
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState("Todos");
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const imageOpenerRef = useRef(null);
   const itemsPerPage = 6;
 
   const filteredEntries =
     activeFilter === "Todos"
       ? galleryEntries
       : galleryEntries.filter((entry) => entry.category === activeFilter);
+  const selectedEntry =
+    selectedImageIndex === null ? null : filteredEntries[selectedImageIndex];
 
   const totalPages = Math.max(1, Math.ceil(filteredEntries.length / itemsPerPage));
   const safePage = Math.min(currentPage, totalPages);
   const visibleEntries = filteredEntries.slice((safePage - 1) * itemsPerPage, safePage * itemsPerPage);
+  const visiblePageCount = Math.min(5, totalPages);
+  const firstVisiblePage = Math.max(
+    1,
+    Math.min(
+      safePage - Math.floor(visiblePageCount / 2),
+      totalPages - visiblePageCount + 1,
+    ),
+  );
+  const visiblePages = Array.from(
+    { length: visiblePageCount },
+    (_, index) => firstVisiblePage + index,
+  );
+  const lastVisiblePage = firstVisiblePage + visiblePageCount - 1;
+  const pageItems = [
+    ...(firstVisiblePage > 1
+      ? [1, ...(firstVisiblePage > 2 ? ["start-ellipsis"] : [])]
+      : []),
+    ...visiblePages,
+    ...(lastVisiblePage < totalPages
+      ? [...(lastVisiblePage < totalPages - 1 ? ["end-ellipsis"] : []), totalPages]
+      : []),
+  ];
 
   const handleFilterChange = (filter) => {
     setActiveFilter(filter);
     setCurrentPage(1);
+    setSelectedImageIndex(null);
   };
 
   const handlePageChange = (page) => {
     setCurrentPage(Math.min(Math.max(page, 1), totalPages));
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
 
   return (
@@ -95,7 +147,7 @@ export default function GalleryPage() {
         </div>
 
         <div className="gallery-grid">
-          {visibleEntries.map((entry) => (
+          {visibleEntries.map((entry, index) => (
             <article className="gallery-card" key={`${entry.category}-${entry.meta}`}>
               <div className="gallery-card-top">
                 <span className="gallery-card-tag">{entry.category}</span>
@@ -103,27 +155,36 @@ export default function GalleryPage() {
               </div>
 
               <div className="gallery-card-thumb">
-                <Link className="gallery-card-image-link" to={entry.link}>
-                  <img src={entry.image} alt={entry.title} />
-                </Link>
-              </div>
-
-              <div className="gallery-card-footer">
-                <h3>{entry.title}</h3>
-                <div className="gallery-card-line">
-                </div>
+                <button
+                  className="gallery-card-image-link"
+                  type="button"
+                  aria-label={`Abrir imagem: ${entry.title}`}
+                  onClick={(event) => {
+                    imageOpenerRef.current = event.currentTarget;
+                    setSelectedImageIndex((safePage - 1) * itemsPerPage + index);
+                  }}
+                >
+                  <img src={entry.image} alt={entry.imageAlt ?? entry.title} />
+                </button>
               </div>
 
               <div className="gallery-card-body">
-                <Link className="gallery-card-link" to={entry.link}>
+                <button
+                  className="gallery-card-link"
+                  type="button"
+                  onClick={(event) => {
+                    imageOpenerRef.current = event.currentTarget;
+                    setSelectedImageIndex((safePage - 1) * itemsPerPage + index);
+                  }}
+                >
                   Abrir / ampliar
-                </Link>
+                </button>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="gallery-pagination" aria-label="Paginação da galeria">
+        <nav className="gallery-pagination" aria-label="Paginação da galeria">
           <button
             type="button"
             className="page-button page-button-prev"
@@ -135,16 +196,24 @@ export default function GalleryPage() {
           </button>
 
           <div className="page-number-group">
-            {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
-              <button
-                key={page}
-                type="button"
-                className={page === safePage ? "page-number active" : "page-number"}
-                onClick={() => handlePageChange(page)}
-              >
-                {page}
-              </button>
-            ))}
+            {pageItems.map((item) =>
+              typeof item === "number" ? (
+                <button
+                  key={item}
+                  type="button"
+                  className={item === safePage ? "page-number active" : "page-number"}
+                  aria-label={`Ir para a página ${item}`}
+                  aria-current={item === safePage ? "page" : undefined}
+                  onClick={() => handlePageChange(item)}
+                >
+                  {item}
+                </button>
+              ) : (
+                <span key={item} className="page-ellipsis" aria-hidden="true">
+                  …
+                </span>
+              ),
+            )}
           </div>
 
           <button
@@ -156,9 +225,21 @@ export default function GalleryPage() {
           >
             Próxima →
           </button>
-        </div>
+        </nav>
 
       </main>
+
+      <ImageViewer
+        images={filteredEntries.map((entry) => ({
+          src: entry.image,
+          alt: entry.imageAlt ?? entry.title,
+        }))}
+        selectedIndex={selectedImageIndex}
+        onClose={() => setSelectedImageIndex(null)}
+        onSelect={setSelectedImageIndex}
+        openerRef={imageOpenerRef}
+        ariaLabel={selectedEntry?.title}
+      />
 
       <Footer />
     </div>

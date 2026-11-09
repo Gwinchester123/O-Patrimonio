@@ -1,0 +1,10 @@
+.louceiras-person[role="button"],
+.manifestation-person-card[role="button"] {
+  cursor: zoom-in;
+}
+
+.louceiras-person[role="button"]:focus-visible,
+.manifestation-person-card[role="button"]:focus-visible {
+  outline: 3px solid var(--orange-dark);
+  outline-offset: 3px;
+}
