@@ -81,7 +81,7 @@
 
 .manifestation-row {
   display: grid;
-  grid-template-columns: 1.45fr 0.75fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 28px;
   align-items: start;
   margin-bottom: 20px;
@@ -108,7 +108,17 @@
 
 .manifestation-copy {
   display: grid;
+  max-width: 900px;
+  margin: 0 auto;
   gap: 12px;
+}
+
+.manifestation-copy h2 {
+  text-align: center;
+}
+
+.manifestation-copy p {
+  text-align: justify;
 }
 
 .manifestation-highlight {
