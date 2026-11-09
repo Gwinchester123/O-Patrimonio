@@ -14,6 +14,14 @@ const personagens = [
   { nome: "Dr. Boi", imagem: doutorDoBoi },
 ];
 
+const videos = [
+  { id: "ZsdBxKsUSEI", title: "Vídeo do Boi Pai do Campo 1" },
+  { id: "NI51oaLPP2A", title: "Vídeo do Boi Pai do Campo 2" },
+  { id: "hraeDwQihq4", title: "Vídeo do Boi Pai do Campo 3" },
+  { id: "DGPtkb6u0l8", title: "Vídeo do Boi Pai do Campo 4" },
+  { id: "uPd7uysCLZs", title: "Vídeo do Boi Pai do Campo 5" },
+];
+
 export default function BoiPaiDoCampoPage() {
   return (
     <div className="manifestation-page">
@@ -76,6 +84,27 @@ export default function BoiPaiDoCampoPage() {
             imageClassName="manifestation-person-figure"
             titleTag="strong"
           />
+        </section>
+
+        <section className="manifestation-section">
+          <h2>Vídeos</h2>
+          <div
+            className="manifestation-video-grid"
+            aria-label="Vídeos do Boi Pai do Campo"
+          >
+            {videos.map((video) => (
+              <article className="manifestation-video-card" key={video.id}>
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                  title={video.title}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </article>
+            ))}
+          </div>
         </section>
 
         <div className="manifestation-actions">

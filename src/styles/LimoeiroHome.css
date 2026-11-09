@@ -452,13 +452,13 @@ a {
 }
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .cards {
     grid-template-columns: repeat(2, minmax(220px, 1fr));
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 800px) {
   .topbar {
     position: relative;
     padding: 0 20px;
