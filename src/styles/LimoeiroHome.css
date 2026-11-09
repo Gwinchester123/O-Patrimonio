@@ -261,7 +261,9 @@ a {
 }
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow: hidden;
   background: #fffdf7;
   border: 1px solid #ded3bf;
@@ -285,6 +287,9 @@ a {
 }
 
 .card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: clamp(14px, 1vw, 22px);
 }
 
@@ -303,6 +308,7 @@ a {
 }
 
 .card p {
+  flex: 1;
   min-height: 42px;
   margin: 0 0 13px;
   color: var(--muted);
@@ -316,6 +322,7 @@ a {
 }
 
 .card-cta {
+  margin-top: auto;
   color: var(--orange-dark);
   font-size: clamp(12px, 0.8vw, 15px);
   font-weight: 600;
