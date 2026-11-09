@@ -51,6 +51,7 @@
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(48px, 6vw, 82px);
   line-height: 0.88;
+  white-space: nowrap;
 }
 
 .manifestation-intro {
