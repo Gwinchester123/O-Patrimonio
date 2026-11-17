@@ -21,6 +21,7 @@ function ScrollManifestationToTop() {
         "/louceiras",
         "/fogosa",
         "/patrimonio-material",
+        "/galeria",
         "/sobre",
       ].includes(pathname)
     ) {
