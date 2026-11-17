@@ -345,7 +345,7 @@ a {
 
 .manifestations .eyebrow {
   margin: 0 0 10px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.2;
   letter-spacing: 1.8px;
 }
@@ -353,14 +353,14 @@ a {
 .manifestations.section h2 {
   margin: 0 0 10px;
   color: var(--brown-dark);
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.08;
 }
 
 .manifestations .section-heading p {
   color: #74675a;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.5;
   text-align: left;
 }
@@ -382,7 +382,7 @@ a {
 
 .manifestations .small-link {
   padding: 7px 12px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .cards {
@@ -722,11 +722,11 @@ a {
   }
 
   .manifestations.section h2 {
-    font-size: clamp(26px, 8vw, 30px);
+    font-size: clamp(27px, 8vw, 32px);
   }
 
   .manifestations .section-heading p {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .manifestations .cards {

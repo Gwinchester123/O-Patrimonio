@@ -39,29 +39,30 @@ function placeVLibrasButton() {
     styles.id = "vlibras-layout-styles";
     styles.textContent = `
       #vlibras-access {
-        position: static !important;
-        top: auto !important;
-        right: auto !important;
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
         width: 46px !important;
         height: 46px !important;
-        flex: 0 0 46px !important;
         z-index: auto !important;
-        transition: none !important;
-      }
-
-      #vlibras-access:hover,
-      #vlibras-access:has(#vlibras-button:focus-visible) {
-        width: 46px !important;
       }
 
       #vlibras-button {
-        position: relative !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
         width: 46px !important;
         height: 46px !important;
         border: 0 !important;
         border-radius: 12px !important;
         padding: 0 !important;
         background: #3185ee !important;
+        transition: filter 0.2s ease !important;
+      }
+
+      #vlibras-button:hover,
+      #vlibras-button:focus-visible {
+        filter: brightness(1.1);
       }
 
       #vlibras-button img {
@@ -71,10 +72,77 @@ function placeVLibrasButton() {
       }
 
       #vlibras-popup {
-        display: none !important;
+        position: absolute !important;
+        top: 3px !important;
+        right: 46px !important;
+        display: block !important;
+        width: 150px !important;
+        height: 40px !important;
+        opacity: 0;
+        object-fit: contain;
+        pointer-events: none;
+        transform: scaleX(0);
+        transform-origin: right center;
+        transition: none !important;
+        visibility: hidden;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #vlibras-button {
+          transition: none !important;
+        }
       }
     `;
     shadowRoot.appendChild(styles);
+  }
+
+  const button = shadowRoot.getElementById("vlibras-button");
+  const popup = shadowRoot.getElementById("vlibras-popup");
+  if (button && popup && !button.dataset.popupEventsAttached) {
+    let hidePopupTimeout;
+    const setPopupVisible = (visible) => {
+      window.clearTimeout(hidePopupTimeout);
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const duration = reducedMotion ? 0 : 280;
+
+      popup.style.setProperty(
+        "transition",
+        reducedMotion
+          ? "none"
+          : "transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 180ms ease",
+        "important",
+      );
+      popup.style.setProperty(
+        "visibility",
+        "visible",
+        "important",
+      );
+      popup.style.setProperty("opacity", visible ? "1" : "0", "important");
+      popup.style.setProperty(
+        "transform",
+        visible ? "scaleX(1)" : "scaleX(0)",
+        "important",
+      );
+
+      if (!visible) {
+        hidePopupTimeout = window.setTimeout(() => {
+          popup.style.setProperty("visibility", "hidden", "important");
+        }, duration);
+      }
+    };
+
+    popup.getAnimations().forEach((animation) => animation.cancel());
+    button.addEventListener("mouseenter", () => setPopupVisible(true));
+    button.addEventListener("mouseleave", () =>
+      setPopupVisible(button.matches(":focus-visible")),
+    );
+    button.addEventListener("focus", () => setPopupVisible(true));
+    button.addEventListener("blur", () =>
+      setPopupVisible(button.matches(":hover")),
+    );
+    button.dataset.popupEventsAttached = "true";
   }
 
   return true;
