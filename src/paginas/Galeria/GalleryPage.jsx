@@ -116,7 +116,7 @@ export default function GalleryPage() {
     <div className="gallery-page">
       <Header />
 
-      <main className="gallery-shell">
+      <main id="main-content" className="gallery-shell" tabIndex={-1}>
         <div className="gallery-header">
           <div className="gallery-heading">
             <span className="gallery-kicker">GALERIA</span>
@@ -132,12 +132,13 @@ export default function GalleryPage() {
         <div className="gallery-toolbar">
           <span className="gallery-label">Filtrar por:</span>
 
-          <div className="gallery-filters" role="tablist" aria-label="Filtros da galeria">
+          <div className="gallery-filters" aria-label="Filtros da galeria">
             {filters.map((filter) => (
               <button
                 key={filter}
                 type="button"
                 className={filter === activeFilter ? "filter-button active" : "filter-button"}
+                aria-pressed={filter === activeFilter}
                 onClick={() => handleFilterChange(filter)}
               >
                 {filter}

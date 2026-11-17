@@ -42,7 +42,7 @@ function Arrow() {
 
 export default function Main() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Banner />
 
       <section className="manifestations section" id="manifestacoes">
@@ -102,6 +102,10 @@ export default function Main() {
             criar um espaço digital acessível onde visitantes possam conhecer as
             manifestações, suas histórias e suas expressões atuais.
           </p>
+
+          <Link className="button button-outline" to="/sobre">
+            Saiba mais sobre o projeto
+          </Link>
         </div>
 
         <div className="about-image">

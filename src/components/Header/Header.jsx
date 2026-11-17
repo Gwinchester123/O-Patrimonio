@@ -23,20 +23,21 @@ export default function Header() {
         aria-controls="main-navigation"
         onClick={() => setMenuOpen((open) => !open)}
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </button>
 
       <nav
         id="main-navigation"
         className={menuOpen ? "nav-open" : ""}
+        aria-label="Navegação principal"
       >
         <Link to="/" onClick={closeMenu}>Início</Link>
         <a href="/#manifestacoes" onClick={closeMenu}>Manifestações</a>
         <Link to="/galeria" onClick={closeMenu}>Galeria</Link>
         <Link to="/acervo" onClick={closeMenu}>Acervo</Link>
-        <a href="/#sobre" onClick={closeMenu}>Sobre</a>
+        <Link to="/sobre" onClick={closeMenu}>Sobre</Link>
       </nav>
     </header>
   );

@@ -27,7 +27,7 @@ export default function BoiPaiDoCampoPage() {
     <div className="manifestation-page">
       <Header />
 
-      <main className="manifestation-shell">
+      <main id="main-content" className="manifestation-shell" tabIndex={-1}>
         <div className="manifestation-topline">
           <span>Manifestações</span>
           <span className="manifestation-slash">/</span>

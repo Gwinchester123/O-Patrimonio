@@ -43,7 +43,7 @@ export default function PatrimonioMaterialPage() {
     <div className="louceiras-page patrimonio-material-page">
       <Header />
 
-      <main className="louceiras-shell">
+      <main id="main-content" className="louceiras-shell" tabIndex={-1}>
         <div className="louceiras-breadcrumb">
           <Link to="/">Início</Link>
           <span aria-hidden="true">/</span>

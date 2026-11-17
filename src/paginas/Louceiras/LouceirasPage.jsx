@@ -42,7 +42,7 @@ export default function LouceirasPage() {
     <div className="louceiras-page">
       <Header />
 
-      <main className="louceiras-shell">
+      <main id="main-content" className="louceiras-shell" tabIndex={-1}>
         <div className="louceiras-breadcrumb">
           <Link to="/">Início</Link>
           <span aria-hidden="true">/</span>

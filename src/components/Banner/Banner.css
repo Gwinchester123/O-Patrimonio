@@ -32,6 +32,9 @@
   padding: 80px 24px 110px;
   text-align: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero .button {
@@ -61,9 +64,9 @@
   margin: 16px 0 0;
   color: white;
   font-family: "Cormorant Garamond", serif;
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 1.6vw, 1.8rem);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 @media (max-width: 800px) {
@@ -103,7 +106,7 @@
 
   .hero .hero-subtitle {
     margin-top: 4px;
-    font-size: 13px;
+    font-size: 1rem;
   }
 
   .hero .button {

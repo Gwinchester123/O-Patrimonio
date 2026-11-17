@@ -3,7 +3,7 @@ import "./Acervo.css";
 
 export default function AcervoPage() {
   return (
-    <main className="event-page">
+    <main id="main-content" className="event-page" tabIndex={-1}>
       <div className="event-page-inner">
         <span className="event-meta">Acervo Histórico</span>
         <h1>Acervo Histórico</h1>

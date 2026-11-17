@@ -1,0 +1,109 @@
+.accessibility-widget {
+  position: fixed;
+  z-index: 2147483638;
+  top: calc(50vh + 26px);
+  right: 10px;
+}
+
+.accessibility-launcher {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: #174f91;
+  color: #fff;
+  cursor: pointer;
+}
+
+.accessibility-launcher svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.accessibility-panel {
+  position: fixed;
+  top: max(8px, calc(50vh - 20px));
+  right: 58px;
+  width: min(360px, calc(100vw - 80px));
+  max-height: calc(100vh - 16px);
+  overflow: auto;
+  padding: 18px;
+  border: 2px solid #174f91;
+  border-radius: 12px;
+  background: #fff;
+  color: #171717;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.28);
+}
+
+.accessibility-panel h2,
+.accessibility-panel h3 {
+  margin: 0 0 12px;
+  color: #171717;
+  font-family: inherit;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.accessibility-panel h3 {
+  margin-top: 20px;
+}
+
+.accessibility-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.accessibility-options button {
+  min-height: 42px;
+  padding: 7px 10px;
+  border: 1px solid #174f91;
+  border-radius: 5px;
+  background: #fff;
+  color: #123b6a;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.accessibility-options button[aria-pressed="true"] {
+  background: #123b6a;
+  color: #fff;
+}
+
+.accessibility-options button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.speech-options button:first-child {
+  background: #174f91;
+  color: #fff;
+}
+
+.speech-status,
+.speech-unavailable {
+  min-height: 1.4em;
+  margin: 10px 0 0;
+  color: #222;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 520px) {
+  .accessibility-widget {
+    right: 10px;
+  }
+
+  .accessibility-panel {
+    right: 58px;
+  }
+}
