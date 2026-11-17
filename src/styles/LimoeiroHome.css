@@ -706,19 +706,22 @@ a {
   }
 
   .manifestations.section {
-    padding: 30px 20px 45px;
+    padding: 24px 20px 45px;
   }
 
   .manifestations .section-heading {
     height: auto;
-    min-height: 175px;
+    min-height: 0;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
+    gap: 8px 0;
+    margin-bottom: 0;
   }
 
   .manifestations .section-heading > div {
-    flex: 1 1 260px;
+    flex: 1 1 100%;
+    max-width: calc(100% - 60px);
   }
 
   .manifestations.section h2 {
@@ -730,7 +733,12 @@ a {
   }
 
   .manifestations .cards {
-    margin-top: 0;
+    margin-top: 12px;
+  }
+
+  .manifestations .small-link {
+    align-self: flex-start;
+    margin: 0;
   }
 
   .section-heading {
