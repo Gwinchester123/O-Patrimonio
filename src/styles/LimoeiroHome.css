@@ -648,6 +648,34 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .manifestations.section {
+    padding: 24px 20px 45px;
+  }
+
+  .manifestations .section-heading {
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px 0;
+    margin-bottom: 0;
+  }
+
+  .manifestations .section-heading > div {
+    flex: 1 1 100%;
+    max-width: calc(100% - 60px);
+  }
+
+  .manifestations .cards {
+    margin-top: 12px;
+  }
+
+  .manifestations .small-link {
+    align-self: flex-start;
+    margin: 0;
+  }
+
   .card img {
     height: 200px;
   }
@@ -705,40 +733,12 @@ a {
     padding: 45px 20px;
   }
 
-  .manifestations.section {
-    padding: 24px 20px 45px;
-  }
-
-  .manifestations .section-heading {
-    height: auto;
-    min-height: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 8px 0;
-    margin-bottom: 0;
-  }
-
-  .manifestations .section-heading > div {
-    flex: 1 1 100%;
-    max-width: calc(100% - 60px);
-  }
-
   .manifestations.section h2 {
     font-size: clamp(27px, 8vw, 32px);
   }
 
   .manifestations .section-heading p {
     font-size: 16px;
-  }
-
-  .manifestations .cards {
-    margin-top: 12px;
-  }
-
-  .manifestations .small-link {
-    align-self: flex-start;
-    margin: 0;
   }
 
   .section-heading {
