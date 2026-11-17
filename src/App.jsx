@@ -57,8 +57,10 @@ function App() {
       </a>
       <ScrollManifestationToTop />
       <FocusMainOnNavigation />
-      <VLibrasWidget />
-      <AccessibilityControls />
+      <div className="accessibility-tools">
+        <VLibrasWidget />
+        <AccessibilityControls />
+      </div>
       <Routes>
         <Route path="/" element={<PaginaInicial />} />
         <Route path="/boi-pai-do-campo" element={<BoiPaiDoCampoPage />} />

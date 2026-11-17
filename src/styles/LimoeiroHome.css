@@ -327,6 +327,64 @@ a {
   background: var(--cream-light);
 }
 
+.manifestations.section {
+  padding: 0 5% 58px;
+}
+
+.manifestations .section-heading {
+  height: 175px;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.manifestations .cards {
+  margin-top: -25px;
+}
+
+.manifestations .eyebrow {
+  margin: 0 0 10px;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 1.8px;
+}
+
+.manifestations.section h2 {
+  margin: 0 0 10px;
+  color: var(--brown-dark);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.manifestations .section-heading p {
+  color: #74675a;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.manifestations .small-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: none;
+  padding: 10px 15px;
+  border: 1px solid #d6cbb8;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.manifestations .small-link {
+  padding: 7px 12px;
+  font-size: 10px;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -645,6 +703,34 @@ a {
 
   .section {
     padding: 45px 20px;
+  }
+
+  .manifestations.section {
+    padding: 30px 20px 45px;
+  }
+
+  .manifestations .section-heading {
+    height: auto;
+    min-height: 175px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .manifestations .section-heading > div {
+    flex: 1 1 260px;
+  }
+
+  .manifestations.section h2 {
+    font-size: clamp(26px, 8vw, 30px);
+  }
+
+  .manifestations .section-heading p {
+    font-size: 15px;
+  }
+
+  .manifestations .cards {
+    margin-top: 0;
   }
 
   .section-heading {

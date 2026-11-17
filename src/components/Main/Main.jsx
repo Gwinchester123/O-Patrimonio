@@ -53,7 +53,7 @@ export default function Main() {
             <h2>Histórias que vivem no território</h2>
 
             <p>
-              Conheça expressões culturais prioritárias reunidas pelo projeto.
+              Conheça expressões culturais prioritárias reunidas pelo Limoeiro Conta.
             </p>
           </div>
 

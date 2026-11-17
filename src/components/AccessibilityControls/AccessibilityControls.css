@@ -1,26 +1,67 @@
-.accessibility-widget {
+.accessibility-tools {
   position: fixed;
-  z-index: 2147483638;
-  top: calc(50vh + 26px);
-  right: 10px;
+  z-index: 2000;
+  top: 50%;
+  right: 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transform: translateY(-50%);
+}
+
+.accessibility-tools > div[vw].enabled {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  overflow: visible;
+}
+
+.accessibility-tools > div[vw] [vw-access-button] {
+  display: none !important;
+}
+
+.accessibility-tools #vlibras-access-wrapper,
+.accessibility-widget {
+  position: relative !important;
+  inset: auto !important;
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  margin: 0 !important;
+  flex: 0 0 46px;
+  overflow: visible;
 }
 
 .accessibility-launcher {
-  display: grid;
-  width: 40px;
-  height: 40px;
+  display: block !important;
+  box-sizing: border-box;
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.accessibility-launcher {
+  display: grid !important;
   place-items: center;
-  padding: 0;
-  border: 0;
-  border-radius: 8px;
   background: #174f91;
   color: #fff;
   cursor: pointer;
 }
 
 .accessibility-launcher svg {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -29,11 +70,11 @@
 }
 
 .accessibility-panel {
-  position: fixed;
-  top: max(8px, calc(50vh - 20px));
-  right: 58px;
-  width: min(360px, calc(100vw - 80px));
-  max-height: calc(100vh - 16px);
+  position: absolute;
+  top: 0;
+  right: 54px;
+  width: min(360px, calc(100vw - 32px));
+  max-height: min(70vh, 560px);
   overflow: auto;
   padding: 18px;
   border: 2px solid #174f91;
@@ -99,11 +140,11 @@
 }
 
 @media (max-width: 520px) {
-  .accessibility-widget {
-    right: 10px;
+  .accessibility-tools {
+    right: 9px;
   }
 
   .accessibility-panel {
-    right: 58px;
+    right: 54px;
   }
 }
