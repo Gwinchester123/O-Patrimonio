@@ -145,6 +145,11 @@
   }
 
   .accessibility-panel {
+    box-sizing: border-box;
+    top: 50%;
     right: 54px;
+    width: min(320px, calc(100vw - 120px));
+    padding: 14px;
+    transform: translateY(-50%);
   }
 }
