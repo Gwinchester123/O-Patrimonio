@@ -108,7 +108,13 @@ export default function PrivacidadePage() {
               <p>
                 Para exercer direitos relacionados à privacidade ou tirar dúvidas sobre
                 esta política, entre em contato com Giliard Moura pelo e-mail{" "}
-                <a href="mailto:email@exemplo.com">email@exemplo.com</a>.
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=opatrimonio71@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  opatrimonio71@gmail.com
+                </a>.
               </p>
             </section>
           </div>

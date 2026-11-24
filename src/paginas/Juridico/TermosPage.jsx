@@ -105,7 +105,14 @@ export default function TermosPage() {
               <h2>9. Contato</h2>
               <p>
                 Para dúvidas sobre estes Termos de Uso, entre em contato com Giliard
-                Moura pelo e-mail <a href="mailto:email@exemplo.com">email@exemplo.com</a>.
+                Moura pelo e-mail{" "}
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=opatrimonio71@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  opatrimonio71@gmail.com
+                </a>.
               </p>
             </section>
           </div>

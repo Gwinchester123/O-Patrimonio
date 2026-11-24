@@ -17,7 +17,13 @@ export default function Footer() {
         <span className="footer-title">CONTATO</span>
 
         <p>
-          <a href="mailto:email@exemplo.com">email@exemplo.com</a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=opatrimonio71@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            opatrimonio71@gmail.com
+          </a>
         </p>
       </div>
 
