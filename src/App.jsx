@@ -8,6 +8,8 @@ import PatrimonioMaterialPage from "./paginas/Patrimonio_Material/PatrimonioMate
 import GalleryPage from "./paginas/Galeria/GalleryPage";
 import AcervoPage from "./paginas/Acervo/AcervoPage";
 import SobrePage from "./paginas/Sobre/SobrePage";
+import TermosPage from "./paginas/Juridico/TermosPage";
+import PrivacidadePage from "./paginas/Juridico/PrivacidadePage";
 import VLibrasWidget from "./components/VLibrasWidget/VLibrasWidget";
 import AccessibilityControls from "./components/AccessibilityControls/AccessibilityControls";
 
@@ -23,6 +25,8 @@ function ScrollManifestationToTop() {
         "/patrimonio-material",
         "/galeria",
         "/sobre",
+        "/termos-de-uso",
+        "/politica-de-privacidade",
       ].includes(pathname)
     ) {
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -71,6 +75,8 @@ function App() {
         <Route path="/galeria" element={<GalleryPage />} />
         <Route path="/acervo" element={<AcervoPage />} />
         <Route path="/sobre" element={<SobrePage />} />
+        <Route path="/termos-de-uso" element={<TermosPage />} />
+        <Route path="/politica-de-privacidade" element={<PrivacidadePage />} />
       </Routes>
     </BrowserRouter>
   );

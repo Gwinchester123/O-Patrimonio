@@ -45,6 +45,22 @@
   font-size: 10px;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-links a {
+  color: #d7c8b4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-links a:hover {
+  color: #e39a4c;
+}
+
 @media (max-width: 800px) {
   .footer {
     grid-template-columns: 1fr;
@@ -55,6 +71,10 @@
   .footer-bottom {
     flex-direction: column;
     gap: 5px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
   }
 }
 

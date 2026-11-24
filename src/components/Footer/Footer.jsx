@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 export default function Footer() {
@@ -23,7 +24,11 @@ export default function Footer() {
       <div className="footer-bottom">
         <span>© O Patrimônio · projeto de portal cultural</span>
 
-        <span>Limoeiro do Norte · Ceará</span>
+        <div className="footer-links">
+          <Link to="/termos-de-uso">Termos de Uso</Link>
+          <Link to="/politica-de-privacidade">Política de Privacidade</Link>
+          <span>Limoeiro do Norte · Ceará</span>
+        </div>
       </div>
     </footer>
   );
